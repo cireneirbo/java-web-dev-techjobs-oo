@@ -13,9 +13,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    //  Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
     public Job() {
         id = nextId;
         nextId++;
@@ -29,8 +26,6 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-    //  Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
     public void dataNotAvailable() {
         if (name == "") {
@@ -52,16 +47,23 @@ public class Job {
 
     @Override
     public String toString() {
+
+        if (name == null && location == null && employer == null && positionType == null && coreCompetency == null) {
+            String errorMessageNotAnObject = "OOPS! This job does not seem to exist.";
+            return errorMessageNotAnObject;
+        }
         dataNotAvailable();
+
         String jobToString =
                 "_______\n" +
                 "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
-                "Employer: " + employer.getValue() + "\n" +
+                "Employer: " + employer + "\n" +
                 "Location: " + location + "\n" +
-                "Position Type: " + positionType.getValue() + "\n" +
-                "Core Competency: " + coreCompetency.getValue() + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n" +
                 "_______\n";
+
         return jobToString;
     }
 
@@ -77,9 +79,6 @@ public class Job {
     public int hashCode() {
         return Objects.hash(getId());
     }
-
-    //  Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
 
     public int getId() {
         return id;
