@@ -4,14 +4,25 @@ import java.util.Objects;
 
 public abstract class JobField {
 
-    protected static int id;
-    protected static int nextId = 1;
-    protected static String value;
+    private static int id;
+    private static int nextId = 1;
+    private static String value;
+
+    public JobField() {
+        this.id = nextId;
+        nextId++;
+    }
+
+    public JobField(String value) {
+        this();
+        this.value = value;
+    }
 
     @Override
     public String toString() {
         return value;
     }
+
 
     @Override
     public int hashCode() {
