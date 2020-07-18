@@ -1,7 +1,5 @@
 package org.launchcode.techjobs_oo;
 
-import java.util.Objects;
-
 public class Job {
 
     private int id;
@@ -31,16 +29,16 @@ public class Job {
         if (name == "") {
             name = "Data not available";
         }
-        if (employer.getValue() == "") {
+        if (employer.getValue().equals("")) {
             employer.setValue("Data not available");
         }
-        if (location.getValue() == "") {
+        if (location.getValue().equals("")) {
             location.setValue("Data not available");
         }
-        if (positionType.getValue() == "") {
+        if (positionType.getValue().equals("")) {
             positionType.setValue("Data not available");
         }
-        if (coreCompetency.getValue() == "") {
+        if (coreCompetency.getValue().equals("")) {
             coreCompetency.setValue("Data not available");
         }
     }
@@ -55,14 +53,14 @@ public class Job {
         dataNotAvailable();
 
         String jobToString =
-                "_______\n" +
-                "ID: " + id + "\n" +
-                "Name: " + name + "\n" +
-                "Employer: " + employer + "\n" +
-                "Location: " + location + "\n" +
-                "Position Type: " + positionType + "\n" +
-                "Core Competency: " + coreCompetency + "\n" +
-                "_______\n";
+                        "_______\n" +
+                        "ID: " + this.getId() + "\n" +
+                        "Name: " + this.getName() + "\n" +
+                        "Employer: " + this.getEmployer() + "\n" +
+                        "Location: " + this.getLocation() + "\n" +
+                        "Position Type: " + this.getPositionType() + "\n" +
+                        "Core Competency: " + this.getCoreCompetency() + "\n" +
+                        "_______\n";
 
         return jobToString;
     }
@@ -77,7 +75,7 @@ public class Job {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return java.util.Objects.hash(super.hashCode(), id);
     }
 
     public int getId() {

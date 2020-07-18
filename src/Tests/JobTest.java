@@ -1,7 +1,6 @@
-package org.launchcode.techjobs_oo.Tests;
+package Tests;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
 
